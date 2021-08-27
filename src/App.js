@@ -78,6 +78,7 @@ function App() {
       </div>
       {searchResults ? (
         <div>
+          {/* TODO: see how github api does pagination */}
           {searchResults?.pagination && (
             <Pagination
               pageNum={pageNum}
