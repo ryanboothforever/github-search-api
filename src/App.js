@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(faChevronRight, faChevronLeft);
 function App() {
   // todo: Make an empty array
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(undefined);
   // todo: set instead of results.pagination.whatever
   // const [pagResults, setPagResults] = useState(null);
   const [searchName, setSearchName] = useState("");
@@ -59,7 +59,7 @@ function App() {
     setPageNum(pageNum + 1);
     setLoading(true);
   };
-  console.log(searchResults.items);
+
   return (
     <main>
       <div className="d-flex row mt-3 px-4 results-searchbar">
@@ -82,15 +82,19 @@ function App() {
           />
         </label>
       </div>
-      {searchResults.items ? (
+      {searchResults ? (
         <div>
-          <Pagination
-            pageNum={pageNum}
-            prevPage={prevPage}
-            nextPage={nextPage}
-            searchResults={searchResults}
-            setSearchResults={setSearchResults}
-          />
+          {/* TODO: see how github api does pagination */}
+          {searchResults?.pagination && (
+            <Pagination
+              pageNum={pageNum}
+              prevPage={prevPage}
+              nextPage={nextPage}
+              searchResults={searchResults}
+              setSearchResults={setSearchResults}
+            />
+          )}
+          
           <div className="row">
             {searchResults.items.map((person) => (
               <Result person={person} />
