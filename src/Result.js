@@ -1,7 +1,7 @@
 import React from "react";
 
 function Result(props) {
-  console.log(props);
+  //   console.log(props);
   return (
     <div className="col justify-content-center mb-3" key={props.person.id}>
       <div className="d-flex justify-content-center mb-1">
