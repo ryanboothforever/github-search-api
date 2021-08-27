@@ -59,7 +59,7 @@ function App() {
     setPageNum(pageNum + 1);
     setLoading(true);
   };
-  console.log(searchResults.items);
+
   return (
     <main>
       <div className="d-flex row mt-3 px-4 results-searchbar">
