@@ -1,3 +1,7 @@
+# GitHub User Search React App
+
+With this application, you can enter a specific user name, or any string combination to search GitHub's user library.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
