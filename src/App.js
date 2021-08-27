@@ -5,7 +5,7 @@ import Result from "./Result";
 
 function App() {
   // todo: Make an empty array
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(undefined);
   // todo: set instead of results.pagination.whatever
   // const [pagResults, setPagResults] = useState(null);
   const [searchName, setSearchName] = useState("");
@@ -76,15 +76,18 @@ function App() {
           />
         </label>
       </div>
-      {searchResults.length > 0 ? (
+      {searchResults ? (
         <div>
-          <Pagination
-            pageNum={pageNum}
-            prevPage={prevPage}
-            nextPage={nextPage}
-            searchResults={searchResults}
-            setSearchResults={setSearchResults}
-          />
+          {searchResults?.pagination && (
+            <Pagination
+              pageNum={pageNum}
+              prevPage={prevPage}
+              nextPage={nextPage}
+              searchResults={searchResults}
+              setSearchResults={setSearchResults}
+            />
+          )}
+          
           <div className="row">
             {searchResults.items.map((person) => (
               <Result person={person} />
