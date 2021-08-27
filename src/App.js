@@ -59,7 +59,7 @@ function App() {
     setPageNum(pageNum + 1);
     setLoading(true);
   };
-
+  console.log(searchResults);
   return (
     <main>
       <div className="d-flex row mt-3 px-4 results-searchbar">
@@ -82,27 +82,25 @@ function App() {
           />
         </label>
       </div>
+
       {searchResults ? (
         <div>
-          {/* TODO: see how github api does pagination */}
-          {searchResults?.pagination && (
-            <Pagination
-              pageNum={pageNum}
-              prevPage={prevPage}
-              nextPage={nextPage}
-              searchResults={searchResults}
-              setSearchResults={setSearchResults}
-            />
+          {searchResults.incomplete_results == true ? (
+            <div>No Results</div>
+          ) : (
+            <div>
+              <Pagination
+                pageNum={pageNum}
+                prevPage={prevPage}
+                nextPage={nextPage}
+                searchResults={searchResults}
+                setSearchResults={setSearchResults}
+              />
+            </div>
           )}
-          
-          <div className="row">
-            {searchResults.items.map((person) => (
-              <Result person={person} />
-            ))}
-          </div>
         </div>
       ) : (
-        <div></div>
+        <div>Thing</div>
       )}
     </main>
   );

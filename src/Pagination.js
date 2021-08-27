@@ -22,9 +22,7 @@ const Pagination = ({
     <div className="row mt-3 mb-3">
       {/* If the page we are on is the only page in the results, do not show prev page numbers, otherwise do */}
       <div className="col">
-        {searchResults.pagination.currentPage ===
-          searchResults.pagination.totalPages &&
-        searchResults.pagination.currentPage > 1 ? (
+        {searchResults.total_count > 30 && pageNum > 1 ? (
           <div className="row">
             <div className="col">
               <FontAwesomeIcon
@@ -35,17 +33,15 @@ const Pagination = ({
               />
             </div>
             <div className="col text-muted fa-icon">
-              <h6>{searchResults.pagination.previousPage}</h6>
+              <h6>{pageNum - 1}</h6>
             </div>
             <div className="col">
-              <h5 className="highlight-page">
-                {searchResults.pagination.currentPage}
-              </h5>
+              <h5 className="highlight-page">{pageNum}</h5>
             </div>
           </div>
         ) : (
           <div className="row mb-3">
-            {searchResults.pagination.currentPage > 1 ? (
+            {pageNum > 1 ? (
               <div className="col d-flex justify-content-start">
                 <FontAwesomeIcon
                   icon={faChevronLeft}
@@ -57,18 +53,16 @@ const Pagination = ({
             ) : (
               <div></div>
             )}
-            {searchResults.pagination.previousPage === 0 ? (
+            {pageNum - 1 === 0 ? (
               <div></div>
             ) : (
               <div className="col text-center text-muted fa-icon">
-                <h6>{searchResults.pagination.previousPage}</h6>
+                <h6>{pageNum - 1}</h6>
               </div>
             )}
             <div className="col text-center">
               <div className="d-flex justify-content-center">
-                <h5 className="highlight-page">
-                  {searchResults.pagination.currentPage}
-                </h5>
+                <h5 className="highlight-page">{pageNum}</h5>
               </div>
             </div>
             {searchResults.pagination.totalPages ===
