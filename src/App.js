@@ -2,7 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pagination from "./Pagination";
 import Result from "./Result";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faChevronRight,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+library.add(faChevronRight, faChevronLeft);
 function App() {
   // todo: Make an empty array
   const [searchResults, setSearchResults] = useState(undefined);
@@ -23,7 +30,6 @@ function App() {
       const res = await axios.get(url);
       // todo: res.data.results
       setSearchResults(res.data);
-      console.log(res.data);
       // todo: setPagResults: res.data.pagination
       setLoading(false);
     };
@@ -53,7 +59,7 @@ function App() {
     setPageNum(pageNum + 1);
     setLoading(true);
   };
-
+  console.log(searchResults.items);
   return (
     <main>
       <div className="d-flex row mt-3 px-4 results-searchbar">
