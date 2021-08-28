@@ -9,7 +9,6 @@ import {
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from "./img/github-logo.png";
 
 library.add(faChevronRight, faChevronLeft);
 function App() {
@@ -82,7 +81,11 @@ function App() {
     <main className="mt-5">
       <div className="container">
         <div className="col">
-          <img src={logo} className="logo" alt="GitHub Logo" />
+          <img
+            src="https://res.cloudinary.com/dsoyemwut/image/upload/v1630184955/github-logo_vtdjl9.png"
+            className="logo"
+            alt="GitHub Logo"
+          />
           <div className="row">
             <h1>GitHub User Search API</h1>
           </div>
