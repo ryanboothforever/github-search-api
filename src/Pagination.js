@@ -35,8 +35,19 @@ const Pagination = ({
             <div className="col text-muted fa-icon">
               <h6>{pageNum - 1}</h6>
             </div>
-            <div className="col">
+            <div className="col d-flex justify-content-center">
               <h5 className="highlight-page">{pageNum}</h5>
+            </div>
+            <div className="col d-flex justify-content-end">
+              <h5>{pageNum + 1}</h5>
+            </div>
+            <div className="col d-flex justify-content-end">
+              <FontAwesomeIcon
+                icon={faChevronRight}
+                onClick={nextPage}
+                className="text-muted fa-icon"
+                size="2x"
+              />
             </div>
           </div>
         ) : (
@@ -49,6 +60,9 @@ const Pagination = ({
                   className="text-muted fa-icon"
                   size="2x"
                 />
+                <div className="col text-muted fa-icon">
+                  <h6>{pageNum - 1}</h6>
+                </div>
               </div>
             ) : (
               <div></div>
@@ -65,17 +79,14 @@ const Pagination = ({
                 <h5 className="highlight-page">{pageNum}</h5>
               </div>
             </div>
-            {searchResults.pagination.totalPages ===
-            searchResults.pagination.currentPage ? (
+            {searchResults.total_count / 30 < 1 ? (
               <div></div>
             ) : (
               <div className="col text-center text-muted fa-icon">
-                <h6>{searchResults.pagination.nextPage}</h6>
+                <h6>{pageNum + 1}</h6>
               </div>
             )}
-            {searchResults.pagination.totalPages ===
-              searchResults.pagination.currentPage &&
-            searchResults.pagination.currentPage === 1 ? (
+            {searchResults.total_count <= 30 ? (
               <div></div>
             ) : (
               <div className="col d-flex justify-content-end">

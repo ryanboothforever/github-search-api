@@ -1,0 +1,111 @@
+html{
+        background-color: rgb(19, 23, 29);
+}
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgb(19, 23, 29);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.container > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container{
+    display: flex;
+    justify-content: center;
+}
+
+label{
+    display: flex;
+    justify-content: center;
+}
+#inputButton{
+    border: none
+}
+
+.logo{
+    max-width: 20rem;
+}
+
+/* Base Styles - Font */
+h1,h2,h3,h4,h5,h6,span,div{
+    color: rgb(184, 184, 184);
+}
+h2,
+input {
+    font-family: 'Poiret One', 'sans-serif';
+}
+
+span,
+h5,
+h6 {
+    font-family: 'Raleway', 'sans-serif';
+    margin-bottom: 0;
+}
+
+.landing-row {
+    width: 30rem;
+}
+
+.landing-input {
+    padding-right: 0;
+}
+
+#inputButton {
+    background-color: white;
+    color: rgb(33, 33, 33);
+}
+
+.fa-icon:hover {
+    cursor: pointer;
+}
+
+.input-field {
+    height: 2.3rem
+}
+
+.col>label>input {
+    width: 15rem;
+}
+
+.result{
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar{
+    max-width: 10rem;
+}
+.highlight-page {
+    width: 2rem;
+    border-radius: 50%;
+    color: whitesmoke;
+    background-color: rgb(174,216,238);
+    text-align: center;
+    font-size: 1.5rem;
+    border: 2px solid rgb(174, 216, 238)
+}
+
+/*  Mobile */
+@media screen and (max-width: 795px) {
+    .container {
+        margin-top: 10%;
+    }
+
+    h2 {
+        text-align: center;
+    }
+    .landing-input {
+        justify-content: center !important;
+    }
+}
